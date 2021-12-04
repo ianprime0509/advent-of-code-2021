@@ -69,7 +69,7 @@ async function readBoard(reader: BufReader): Promise<Board | null> {
       line
         .trim()
         .split(/\s+/)
-        .map((position) => parseInt(position, 10))
+        .map((position) => parseInt(position, 10)),
     );
   }
   return new Board(positions);

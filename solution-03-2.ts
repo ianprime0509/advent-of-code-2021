@@ -21,7 +21,7 @@ function partition(values: string[], digit: number): [string[], string[]] {
 
 function calculateRating(
   values: string[],
-  choose: (zeros: string[], ones: string[]) => string[]
+  choose: (zeros: string[], ones: string[]) => string[],
 ): string {
   const bits = values[0].length;
   for (let i = 0; i < bits; i++) {
@@ -37,13 +37,15 @@ function calculateRating(
   return values[0];
 }
 
-const oxygenGeneratorRating = calculateRating(values, (zeros, ones) =>
-  zeros.length > ones.length ? zeros : ones
+const oxygenGeneratorRating = calculateRating(
+  values,
+  (zeros, ones) => zeros.length > ones.length ? zeros : ones,
 );
-const co2ScrubberRating = calculateRating(values, (zeros, ones) =>
-  ones.length < zeros.length ? ones : zeros
+const co2ScrubberRating = calculateRating(
+  values,
+  (zeros, ones) => ones.length < zeros.length ? ones : zeros,
 );
 
 console.log(
-  parseInt(oxygenGeneratorRating, 2) * parseInt(co2ScrubberRating, 2)
+  parseInt(oxygenGeneratorRating, 2) * parseInt(co2ScrubberRating, 2),
 );
